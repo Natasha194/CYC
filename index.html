@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MonteCarlo">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oregano">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parisienne">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pristina">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pompiere">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=MonteCarlo">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ComicSansMS">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>RRDC | Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header {
+            width: 100%;
+
+            background-color: #c3c20e;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        nav .logo img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 10px 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #527506;
+            font-weight: 500;
+        }
+        nav ul li a:hover {
+            text-decoration: none;
+            color: #4c6d05;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 5px;
+            position: relative;
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: -5px;
+            position: relative;
+        }
+
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color:#c3c20e;
+            overflow-x: hidden;
+            transition: 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .overlay-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .overlay-content a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay-content a:hover, .overlay-content a:focus {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+            cursor: pointer;
+            color: white;
+        }
+
+
+
+
+        .content h1 {
+            font-size: 60%;
+            line-height: 1.2;
+            font-weight: 600;
+            font-family: 'MonteCarlo';
+            font-size: 48px;
+            color: #527506;
+
+        }
+
+        .content p {
+            line-height: 1.6;
+            opacity: 0;
+            animation-delay: 1s;
+            color: #527506;
+        }
+
+        .links {
+            margin-top: 30px;
+            opacity: 0;
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 1s;
+        }
+
+        .btn {
+            border: 2px solid white;
+            padding: 10px 35px;
+            border-radius: 30px;
+            margin-right: 15px;
+        }
+
+        .slide-right {
+            animation: slideright 1s linear forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+
+        @keyframes slideright {
+            0% {
+                transform: translate(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(0px);
+                opacity: 1;
+            }
+        }
+
+        .slide-left {
+            animation: slideleft 1s linear forwards;
+        }
+
+        @keyframes slideleft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+
+
+
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .main-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+
+
+
+            .btn {
+                padding: 8px 30px;
+            }
+
+
+        }
+
+        @media (min-width: 769px) {
+            .feature-img {
+                width: 400px;
+                position: absolute;
+                bottom: 40px;
+                right: 5%;
+            }
+        }
+        .links a:hover {
+            background-color: #2F005D;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <a href="index.html"><div class="logo">
+                <img src="logo.png" alt="">
+                
+            </div></a>
+            <ul class="nav-links">
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <div class="overlay" id="overlay">
+            <span class="closebtn" id="closebtn">&times;</span>
+            <div class="overlay-content">
+                <a href="resources.html">Resources</a>
+                <a href="projects.html">Proects</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="content"><center>
+                <h1 class="slide-left">Creative Youth<br>For Change</h1>
+                <p class="slide-left">Inspiring creativity, igniting curiosity, building tommorow</p>
+                <div class="links slide-left">
+                     <br><br></center>
+            </div>
+        </div>
+            
+        
+    </div> <br>
+    <center><h1 style="font-family: 'Pristina';">~~~ What is CYC? ~~~</h1>
+    <p style="margin: 2%;">Creative Youth for Change (CYC) is a forward-thinking youth-led organization aimed toward empowering young individuals, it is dedicated to fostering positive change and growth through providing opportunities for young people to develop their skills, express their creativity, ignite their curiosity, nurture leadership, and make a meaningful and lasting impact in their communities and beyond. CYC is committed to inspire young individuals to live a life of impact and meaning.
+        The primary goal of Creative Youth for Change organization is to create a welcoming, inclusive, and supportive environment where young individuals from diverse backgrounds can come together, share different perspectives, learn from one another, and work towards common goals.
+        Additionally, at the heart of Creative Youth for Change is passion for social impact and community engagement. It actively encourages young people to use their talents and ideas to address world-pressing issues, promote inclusivity, and drive positive transformation in society.
+        Driven by a vision of a world where every young person has the opportunity to thrive and contribute meaningfully to society, Creative Youth for Change is dedicated to empowering the next generation of change-makers and leaders.
+        Our missions align with the United Nation Sustainable Development Goals; The organization is centering “Quality Education” G (4), “Gender Equality” G (5), “Reduced Inequality” G (10), “Peace, Justice, and Strong Institutions” G (16), “Partnerships for the Goals” G (17), and aims to develop these goals.
+        Get ready to join a transformative movement that is reshaping the landscape of education, sparking inquisitiveness, and fueling a spirit of creativity and originality.</p>
+
+        <h2 style="font-family: 'Great Vibes'; font-size: 40px;">~~~~~~~~~~~~~~~~ Our Purpose ~~~~~~~~~~~~~~~~</h2></center> 
+            <div style="margin: 2%; background-color: rgba(244, 171, 217, 0); border-radius: 10px;"> <br>
+                <h3 style="font-family: 'Parisienne'; font-size: 30px;">Education</h3>
+                <p >Creative Youth for Change (CYC) is dedicated to empowering young individuals and communities through education, we plan to improve access to quality education, promote lifelong learning, and foster innovation in educational sectors. Throughout various educational projects, learning platforms, and programs, CYC focuses on reaching out to those who are marginalized of learning and plans to offer them with STEAM programs, seminars and workshops, hackathons, competitions, and several courses within sectors featuring language and technology programs.
+                    CYC also aims to address the most pressing challenges in the world of learning and our missions align with United Nation Sustainable Development Goals, Goal number (4), Quality Education. We follow up with UN Sustainable Development Goals and promote it by ensuring that education is a fundamental human right and a key driver of sustainable development, emphasizing on inclusivity and equitable quality education and promote life-long learning opportunities for all.</p><br>
+            </div>
+
+            <div style="margin: 2%; background-color: rgba(244, 171, 217, 0); border-radius: 10px;"> <br>
+                <h3 style="font-family: 'Parisienne'; font-size: 30px;">Human Rights and Equality</h3>
+                <p>Creative Youth for Change is aiming to address and solve the most-pressing problems the world is tackling that includes human right challenges, inequality, prejudice, and discrimination. We believe that every person in the world should be given the same right despite their ethnicity, religion, race, cultural differences, and color. It is obvious that all the people in all parts of the world have the same value and deserve the same respect, opportunities, and protection from discrimination. Human beings have the primary right to life, liberty, and dignity and no one and no law can deny this, all human rights are equally important and have equal right. CYC’s mission is to promote United Nation Sustainable Development Goals and it mainly focuses to promote Goal Number 5 “Gender Equality”, Goal Number 10 “Reduced Inequality”, Goal Number 16 “Peace, Justice, and Strong Institution”.</p><br>
+            </div>
+
+            <div style="margin: 2%; background-color: rgba(244, 171, 217, 0); border-radius: 10px;"> <br>
+                <h3 style="font-family: 'Parisienne'; font-size: 30px;">Child Welfare</h3>
+                <p>Creative Youth for Change mission is to address challenges that children are tackling in all corners of the world, specifically, those in who are on the margin of the society. We know that children are the next generation of leaders and their protection is our responsibility.</p><br>
+            </div>
+
+    
+      
+
+   
+       
+
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('closebtn');
+
+        menuToggle.addEventListener('click', () => {
+            overlay.style.width = '100%';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.style.width = '0';
+        });
+    </script>
+
+
+  
+</body>
+</html>
